@@ -1,222 +1,128 @@
+---
+author: "Kyle Jones"
+date_published: "November 10, 2025"
+date_exported_from_medium: "November 10, 2025"
+canonical_link: "https://medium.com/@kyle-t-jones/exploring-us-travel-behavior-with-econometric-analysis-61967b7833ea"
+---
+
 # Exploring US Travel Behavior with Econometric Analysis Conventional wisdom holds that gas prices influence how much Americans
 drive. When prices spike, we expect to see corresponding drops in...
 
-::::::::### Exploring US Travel Behavior with Econometric Analysis 
+### Exploring US Travel Behavior with Econometric Analysis 
 
-Conventional wisdom holds that gas prices influence how much Americans
-drive. When prices spike, we expect to see corresponding drops in
-vehicle miles traveled. This relationship appears in policy debates,
-news coverage, and transportation planning models. But does the data
-support it?
+Conventional wisdom holds that gas prices influence how much Americans drive. When prices spike, we expect to see corresponding drops in vehicle miles traveled. This relationship appears in policy debates, news coverage, and transportation planning models. But does the data support it?
 
-I analyzed seven years of federal transportation data (2018--2025) to
-test this assumption. The results challenge common understanding and
-reveal a more fundamental driver of travel behavior.
+I analyzed seven years of federal transportation data (2018--2025) to test this assumption. The results challenge common understanding and reveal a more fundamental driver of travel behavior.
 
 ### The Question
-Transportation represents 28% of U.S. energy consumption and 27% of
-greenhouse gas emissions. Understanding what influences travel demand
-matters for energy policy, infrastructure planning, and climate
-strategy. The price elasticity of gasoline --- the degree to which
-consumption responds to price changes --- has been studied extensively,
-with estimates varying widely depending on timeframe and methodology.
+Transportation represents 28% of U.S. energy consumption and 27% of greenhouse gas emissions. Understanding what influences travel demand matters for energy policy, infrastructure planning, and climate strategy. The price elasticity of gasoline --- the degree to which consumption responds to price changes --- has been studied extensively, with estimates varying widely depending on timeframe and methodology.
 
-This analysis examines monthly data from the Bureau of Transportation
-Statistics spanning January 2018 through August 2025, including the
-COVID-19 disruption. The dataset provides a natural experiment: a period
-of economic growth (2018--2020), a massive shock (COVID-19), and an
-uneven recovery (2020--2025).
+This analysis examines monthly data from the Bureau of Transportation Statistics spanning January 2018 through August 2025, including the COVID-19 disruption. The dataset provides a natural experiment: a period of economic growth (2018--2020), a massive shock (COVID-19), and an uneven recovery (2020--2025).
 
 ### The Data
-The analysis uses four primary variables from BTS Monthly Transportation
-Statistics:
+The analysis uses four primary variables from BTS Monthly Transportation Statistics:
 
-- Highway Vehicle Miles Traveled (monthly aggregate, all
-  systems)
+- Highway Vehicle Miles Traveled (monthly aggregate, all systems)
 - Highway Fuel Price (regular gasoline, dollars per gallon)
 - Unemployment Rate (seasonally adjusted)
-- Real GDP (quarterly, seasonally adjusted, forward-filled to
-  monthly)
+- Real GDP (quarterly, seasonally adjusted, forward-filled to monthly)
 
-After cleaning, the dataset contains 70 monthly observations. GDP data,
-reported quarterly, was forward-filled to match the monthly frequency of
-other variables --- a standard approach when mixing data frequencies.
+After cleaning, the dataset contains 70 monthly observations. GDP data, reported quarterly, was forward-filled to match the monthly frequency of other variables --- a standard approach when mixing data frequencies.
 
 ### Methodology
 The analysis proceeds in stages, each addressing potential confounders:
 
-Model 1: Naive Regression A simple OLS regression of miles traveled on
-gas price, with no controls. This establishes a baseline and
-demonstrates omitted variable bias.
+Model 1: Naive Regression A simple OLS regression of miles traveled on gas price, with no controls. This establishes a baseline and demonstrates omitted variable bias.
 
-Model 2: Controlled Specification A log-log model including
-unemployment, month fixed effects, and seasonality controls. Log
-transformation allows interpretation as elasticities.
+Model 2: Controlled Specification A log-log model including unemployment, month fixed effects, and seasonality controls. Log transformation allows interpretation as elasticities.
 
-Model 3: GDP Control Adds GDP to separate employment effects from
-general economic activity.
+Model 3: GDP Control Adds GDP to separate employment effects from general economic activity.
 
-Model 4: Structural Break Analysis Tests for COVID-19 disruption using
-regression discontinuity design, Chow tests, and spline regression.
+Model 4: Structural Break Analysis Tests for COVID-19 disruption using regression discontinuity design, Chow tests, and spline regression.
 
-All models use robust standard errors. The Durbin-Watson statistic
-monitors autocorrelation, though the short time series limits the power
-of formal time series diagnostics.
+All models use robust standard errors. The Durbin-Watson statistic monitors autocorrelation, though the short time series limits the power of formal time series diagnostics.
 
 ### Results
-The naive model shows a strong positive relationship between gas prices
-and miles traveled (coefficient: 2.96×1⁰¹⁰, p \< 0.001, R² = 0.291).
-Higher prices appear to increase driving --- an economically implausible
-result that violates basic demand theory.
+The naive model shows a strong positive relationship between gas prices and miles traveled (coefficient: 2.96×1⁰¹⁰, p \< 0.001, R² = 0.291). Higher prices appear to increase driving --- an economically implausible result that violates basic demand theory.
 
-This finding illustrates omitted variable bias. During 2018--2020, the
-U.S. economy expanded: employment rose, incomes grew, and both travel
-and gas prices increased. The naive model attributes this shared growth
-to causation rather than correlation.
+This finding illustrates omitted variable bias. During 2018--2020, the U.S. economy expanded: employment rose, incomes grew, and both travel and gas prices increased. The naive model attributes this shared growth to causation rather than correlation.
 
 
 ### The Controlled Model
-Adding controls transforms the results. With month fixed effects and
-unemployment in the model:
+Adding controls transforms the results. With month fixed effects and unemployment in the model:
 
 - Gas price elasticity: +0.092 (p = 0.028)
 - Unemployment coefficient: -0.025 (p \< 0.001)
 - R²: 0.867
 
-The model now explains 87% of variance, compared to 29% without
-controls. The gas price effect remains positive but becomes economically
-negligible. A 10% increase in gas prices --- roughly \$0.30/gallon at
-current levels --- predicts less than 1% increase in miles traveled.
+The model now explains 87% of variance, compared to 29% without controls. The gas price effect remains positive but becomes economically negligible. A 10% increase in gas prices --- roughly \$0.30/gallon at current levels --- predicts less than 1% increase in miles traveled.
 
-The unemployment effect is both statistically and economically
-significant. Each percentage point increase in unemployment associates
-with a 2.5% decrease in miles traveled. This relationship is robust,
-consistent, and aligns with economic theory: unemployed individuals
-commute less, have reduced discretionary income, and curtail travel.
+The unemployment effect is both statistically and economically significant. Each percentage point increase in unemployment associates with a 2.5% decrease in miles traveled. This relationship is robust, consistent, and aligns with economic theory: unemployed individuals commute less, have reduced discretionary income, and curtail travel.
 
 
 ### Adding GDP
-GDP enters the model to test whether unemployment captures job-specific
-effects or broader economic activity. Results:
+GDP enters the model to test whether unemployment captures job-specific effects or broader economic activity. Results:
 
-- Gas price elasticity: +0.073 (p = 0.235) --- no longer
-  significant
+- Gas price elasticity: +0.073 (p = 0.235) --- no longer significant
 - GDP elasticity: +0.052 (p = 0.671) --- not significant
 - Unemployment coefficient: -0.025 (p \< 0.001) --- unchanged
 
-GDP adds no explanatory power. The unemployment effect persists with the
-same magnitude and significance. This indicates that employment status
-itself --- not aggregate economic output --- drives travel behavior.
-People travel for work. Without work, travel falls.
+GDP adds no explanatory power. The unemployment effect persists with the same magnitude and significance. This indicates that employment status itself --- not aggregate economic output --- drives travel behavior. People travel for work. Without work, travel falls.
 
 ### The COVID Disruption
-March 2020 represents a natural experiment. Travel restrictions, remote
-work mandates, and public health concerns created an unprecedented
-shock.
+March 2020 represents a natural experiment. Travel restrictions, remote work mandates, and public health concerns created an unprecedented shock.
 
-Regression discontinuity analysis estimates an immediate 9.7% drop in
-log-transformed miles traveled at the COVID onset. A Chow test confirms
-a structural break (F = 5.43, p \< 0.01). However, quadratic spline
-regression reveals that post-COVID slopes resemble pre-COVID patterns,
-suggesting temporary rather than permanent changes in behavior.
+Regression discontinuity analysis estimates an immediate 9.7% drop in log-transformed miles traveled at the COVID onset. A Chow test confirms a structural break (F = 5.43, p \< 0.01). However, quadratic spline regression reveals that post-COVID slopes resemble pre-COVID patterns, suggesting temporary rather than permanent changes in behavior.
 
-The COVID dummy variable in the extended model shows -21.5% effect (p =
-0.086), though statistical power is limited by sample size. The
-unemployment coefficient remains significant throughout (p \< 0.001),
-even during this period of massive disruption.
+The COVID dummy variable in the extended model shows -21.5% effect (p = 0.086), though statistical power is limited by sample size. The unemployment coefficient remains significant throughout (p \< 0.001), even during this period of massive disruption.
 
 
 ### Interpretation
-These findings challenge the assumed importance of fuel prices in travel
-demand. After controlling for seasonality and economic conditions, gas
-price effects become statistically insignificant or economically
-trivial.
+These findings challenge the assumed importance of fuel prices in travel demand. After controlling for seasonality and economic conditions, gas price effects become statistically insignificant or economically trivial.
 
 Several factors explain this result:
 
-Short-run inelasticity: Most driving is non-discretionary --- commuting,
-essential errands, child transport. Consumers cannot quickly adjust
-these needs in response to price changes.
+Short-run inelasticity: Most driving is non-discretionary --- commuting, essential errands, child transport. Consumers cannot quickly adjust these needs in response to price changes.
 
-Income effects: For most households, gasoline represents a small budget
-share. A \$1 increase in gas prices costs the average driver \$40--60
-monthly --- meaningful but not transformative.
+Income effects: For most households, gasoline represents a small budget share. A \$1 increase in gas prices costs the average driver \$40--60 monthly --- meaningful but not transformative.
 
-Substitution limits: Unlike many goods, gasoline has few short-run
-substitutes. Public transit access is limited, carpooling requires
-coordination, and electric vehicles remain a small market share.
+Substitution limits: Unlike many goods, gasoline has few short-run substitutes. Public transit access is limited, carpooling requires coordination, and electric vehicles remain a small market share.
 
-Time horizon: This analysis covers 7.5 years. Longer-term
-adjustments --- residential location, vehicle purchases, mode
-shifts --- require decades to manifest.
+Time horizon: This analysis covers 7.5 years. Longer-term adjustments --- residential location, vehicle purchases, mode shifts --- require decades to manifest.
 
-The unemployment finding is more robust. Job loss directly eliminates
-commuting, reduces income for discretionary travel, and often triggers
-behavioral changes (reduced dining out, postponed vacations, delayed
-purchases). These mechanisms operate quickly and affect most travel
-categories.
+The unemployment finding is more robust. Job loss directly eliminates commuting, reduces income for discretionary travel, and often triggers behavioral changes (reduced dining out, postponed vacations, delayed purchases). These mechanisms operate quickly and affect most travel categories.
 
 ### Limitations
 This analysis has several constraints:
 
-Sample size: 70 observations is adequate for OLS but limits power for
-structural break tests and time series diagnostics.
+Sample size: 70 observations is adequate for OLS but limits power for structural break tests and time series diagnostics.
 
-COVID contamination: The massive 2020--2021 disruption affects 60% of
-the sample, potentially distorting estimated relationships.
+COVID contamination: The massive 2020--2021 disruption affects 60% of the sample, potentially distorting estimated relationships.
 
-Aggregation: State-level or county-level data would reveal geographic
-heterogeneity. National aggregates mask regional variation in transit
-access, urban form, and price sensitivity.
+Aggregation: State-level or county-level data would reveal geographic heterogeneity. National aggregates mask regional variation in transit access, urban form, and price sensitivity.
 
-Frequency: Monthly data cannot capture daily or weekly adjustments.
-Higher-frequency data might show short-term price responsiveness that
-monthly aggregation obscures.
+Frequency: Monthly data cannot capture daily or weekly adjustments. Higher-frequency data might show short-term price responsiveness that monthly aggregation obscures.
 
-Confounders: The 2021--2023 inflation surge, supply chain disruptions,
-and shift to remote work all affect the relationships being estimated.
+Confounders: The 2021--2023 inflation surge, supply chain disruptions, and shift to remote work all affect the relationships being estimated.
 
-Academic studies using longer time series (1970s-2010s) typically find
-small negative price elasticities (-0.1 to -0.3), consistent with
-economic theory. This analysis doesn't contradict those findings --- it
-shows that in the specific 2018--2025 period, with COVID disruption and
-rapid economic changes, the effect is not reliably detected.
+Academic studies using longer time series (1970s-2010s) typically find small negative price elasticities (-0.1 to -0.3), consistent with economic theory. This analysis doesn't contradict those findings --- it shows that in the specific 2018--2025 period, with COVID disruption and rapid economic changes, the effect is not reliably detected.
 
 ### Implications for transportation planning and policy
-Employment matters most: Travel forecasting models should emphasize
-labor market conditions over fuel prices. Unemployment rates, job growth
-projections, and industry composition provide better predictive power
-than energy price scenarios.
+Employment matters most: Travel forecasting models should emphasize labor market conditions over fuel prices. Unemployment rates, job growth projections, and industry composition provide better predictive power than energy price scenarios.
 
-Price policies have limits: Gas taxes, carbon pricing, or fuel subsidies
-will have modest short-run effects on driving. Long-term behavioral
-change requires complementary policies: land use reform, transit
-investment, and vehicle efficiency standards.
+Price policies have limits: Gas taxes, carbon pricing, or fuel subsidies will have modest short-run effects on driving. Long-term behavioral change requires complementary policies: land use reform, transit investment, and vehicle efficiency standards.
 
-COVID's legacy: Remote work persists, affecting commute patterns and
-peak-hour congestion. Models calibrated on pre-2020 data may
-overestimate travel demand.
+COVID's legacy: Remote work persists, affecting commute patterns and peak-hour congestion. Models calibrated on pre-2020 data may overestimate travel demand.
 
-Regional variation: Aggregated national data may obscure important
-differences. Areas with strong public transit might show higher price
-elasticity; car-dependent regions might show none.
+Regional variation: Aggregated national data may obscure important differences. Areas with strong public transit might show higher price elasticity; car-dependent regions might show none.
 
 ### So what?
-There is limited evidence that gas prices influence short-run travel
-behavior in the U.S., after controlling for economic conditions.
-Employment status emerges as the dominant factor: people travel when
-they have jobs.
+There is limited evidence that gas prices influence short-run travel behavior in the U.S., after controlling for economic conditions. Employment status emerges as the dominant factor: people travel when they have jobs.
 
-This doesn't mean prices are irrelevant. Over decades, sustained price
-changes affect vehicle choices, residential location, and urban form.
-But in the monthly data spanning 2018--2025, including a period of
-unprecedented disruption, the signal is clear: unemployment drives
-travel, not fuel costs.
+This doesn't mean prices are irrelevant. Over decades, sustained price changes affect vehicle choices, residential location, and urban form. But in the monthly data spanning 2018--2025, including a period of unprecedented disruption, the signal is clear: unemployment drives travel, not fuel costs.
 
-Transportation policy focused on reducing vehicle miles traveled must
-address the structural factors that make driving necessary --- not just
-the price of gasoline.
-::::### Full Implementation Code 
+Transportation policy focused on reducing vehicle miles traveled must address the structural factors that make driving necessary --- not just the price of gasoline.
+### Full Implementation Code 
 
 ```python
 """
@@ -453,15 +359,6 @@ def main():
 if __name__ == '__main__':
     main()
 ```
-::::Data Access: Bureau of Transportation Statistics Monthly Transportation
-Statistics dataset, available at
-[https://www.bts.gov/](https://www.bts.gov/)
+Data Access: Bureau of Transportation Statistics Monthly Transportation Statistics dataset, available at [https://www.bts.gov/](https://www.bts.gov/)
 
 Last Updated: November 2025
-::::::::::::::::By [Kyle Jones](https://medium.com/@kyle-t-jones) on
-[November 10, 2025](https://medium.com/p/61967b7833ea).
-
-[Canonical
-link](https://medium.com/@kyle-t-jones/exploring-us-travel-behavior-with-econometric-analysis-61967b7833ea)
-
-Exported from [Medium](https://medium.com) on November 10, 2025.
