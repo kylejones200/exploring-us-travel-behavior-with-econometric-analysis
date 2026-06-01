@@ -11,14 +11,7 @@ I analyzed seven years of federal transportation data (2018--2025) to test this 
 
 Transportation represents 28% of U.S. energy consumption and 27% of greenhouse gas emissions. Understanding what influences travel demand matters for energy policy, infrastructure planning, and climate strategy. The price elasticity of gasoline --- the degree to which consumption responds to price changes --- has been studied extensively, with estimates varying widely depending on timeframe and methodology.
 
-## About
 
-Place the code for this article in this repository.
-The original article export is saved as `article.md`.
-
-## Files
-
-Add your `.ipynb`, `.py`, `.yaml`, `.js`, `.ts`, or other project files here.
 
 ## Disclaimer
 
